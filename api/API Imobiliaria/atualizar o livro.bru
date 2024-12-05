@@ -1,0 +1,24 @@
+meta {
+  name: atualizar o livro
+  type: http
+  seq: 10
+}
+
+put {
+  url: http://localhost:3004/livros/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "titulo": "Novo Livro",
+    "autor": "Novo Autor",
+    "preco": 29.99,
+    "paginas": 150,
+    "capa": "https://via.placeholder.com/200",
+    "sinopse": "Sinopse do novo livro.",
+    "generoId": 1
+  }
+  
+}

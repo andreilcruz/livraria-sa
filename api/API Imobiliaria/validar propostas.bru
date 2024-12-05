@@ -1,0 +1,20 @@
+meta {
+  name: validar propostas
+  type: http
+  seq: 17
+}
+
+post {
+  url: http://localhost:3004/propostas
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "clienteId": "e18ee986-44b5-42b3-9fad-88fe3990678e",
+    "livroId": "2",
+    "mensagem": "Quero negociar este livro"
+  }
+  
+}

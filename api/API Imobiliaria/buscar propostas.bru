@@ -1,0 +1,15 @@
+meta {
+  name: buscar propostas
+  type: http
+  seq: 13
+}
+
+get {
+  url: http://localhost:3004/propostas?clienteId=2
+  body: none
+  auth: none
+}
+
+params:query {
+  clienteId: 2
+}

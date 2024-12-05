@@ -1,0 +1,18 @@
+meta {
+  name: adicionar um genero
+  type: http
+  seq: 11
+}
+
+post {
+  url: http://localhost:3004/generos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "Novo Gênero"
+  }
+  
+}

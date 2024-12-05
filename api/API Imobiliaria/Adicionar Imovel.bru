@@ -1,0 +1,26 @@
+meta {
+  name: Adicionar Imovel
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3004/imoveis
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 1,
+    "tipoId": 1,
+    "endereco": "Rua das Flores, 123",
+    "preco": 350000,
+    "area": 120,
+    "quartos": 3,
+    "banheiros": 2,
+    "foto": "https://m.media-amazon.com/images/I/51QjOFqMQKL._SY385_.jpg",
+    "descricao": "Casa confortável com ótima localização"
+  }
+  
+}

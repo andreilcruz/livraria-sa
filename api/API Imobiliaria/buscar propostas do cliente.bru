@@ -1,0 +1,15 @@
+meta {
+  name: buscar propostas do cliente
+  type: http
+  seq: 18
+}
+
+get {
+  url: http://localhost:3004/propostas?clienteId=175f7446-ffaf-4463-aa46-6afe30f96d7d
+  body: none
+  auth: none
+}
+
+params:query {
+  clienteId: 175f7446-ffaf-4463-aa46-6afe30f96d7d
+}

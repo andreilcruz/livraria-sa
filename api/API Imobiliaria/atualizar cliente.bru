@@ -1,0 +1,20 @@
+meta {
+  name: atualizar cliente
+  type: http
+  seq: 15
+}
+
+put {
+  url: http://localhost:3004/clientes/15213455-fa16-43c4-92f7-020f52e02366
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "João Silva Atualizado",
+    "email": "joao.silva@novo.com",
+    "senha": "nova_senha123"
+  }
+  
+}

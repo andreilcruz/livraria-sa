@@ -1,0 +1,20 @@
+meta {
+  name: cadastro admin
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:3004/admins
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "Administrador",
+    "email": "admintest@gmail.com",
+    "senha": "admin123"
+  }
+  
+}

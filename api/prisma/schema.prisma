@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Genero {
+  id     Int      @id @default(autoincrement())
+  nome   String   @db.VarChar(30)
+  livros Livro[]  @relation("GeneroLivros") // Ajustando a relação
+  @@map("generos")
+}
+
+model Livro {
+  id         Int        @id @default(autoincrement())
+  titulo     String     @db.VarChar(100)
+  autor      String     @db.VarChar(100)
+  paginas    Int        @db.SmallInt
+  preco      Decimal    @db.Decimal(10, 2)
+  sinopse    String?    @db.Text
+  capa       String
+  generoId   Int
+  genero     Genero     @relation(fields: [generoId], references: [id], name: "GeneroLivros")
+  propostas  Proposta[] @relation("LivroPropostas") // Ajustando a relação
+  @@map("livros")
+}
+
+
+model Cliente {
+  id         String     @id @default(uuid()) @db.VarChar(36)
+  nome       String     @db.VarChar(60)
+  email      String     @unique @db.VarChar(60)
+  senha      String     @db.VarChar(60)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  propostas  Proposta[] @relation("ClientePropostas") // Ajustando a relação
+  @@map("clientes")
+}
+
+
+model Proposta {
+  id         Int      @id @default(autoincrement())
+  clienteId  String    @db.VarChar(36)
+  cliente    Cliente  @relation("ClientePropostas", fields: [clienteId], references: [id]) // Ajustando a relação
+  livroId    Int
+  livro      Livro    @relation("LivroPropostas", fields: [livroId], references: [id], onDelete: Cascade)
+  mensagem   String   @db.VarChar(255)
+  resposta   String?  @db.VarChar(255)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  @@map("propostas")
+}
+
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

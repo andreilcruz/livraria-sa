@@ -1,0 +1,24 @@
+meta {
+  name: adicionar livros
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:3004/livros
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "generoId": 1,
+    "titulo": "javascript",
+    "autor": "andrei",
+    "preco": 41,
+    "paginas": 123,
+    "capa": "https://m.media-amazon.com/images/I/81BdpMhm3iL._SY385_.jpg",
+    "sinopse": "top"
+  }
+  
+}
